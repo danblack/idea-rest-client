@@ -1,0 +1,61 @@
+<idea-plugin version="2">
+    <id>ru.basecode.ide.rest.plugin</id>
+    <name>Simple Rest Client</name>
+    <version>1.0</version>
+    <vendor email="denis.chernyshov@gmail.com" url="https://www.basecode.ru/ide/plugins/rest">Denis Chernyshov</vendor>
+
+    <description><![CDATA[
+      This is http rest client
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Nothing yet
+    ]]>
+    </change-notes>
+
+    <idea-version since-build="141.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <application-components>
+        <component>
+            <implementation-class>ru.basecode.ide.rest.plugin.RestClientPlugin</implementation-class>
+        </component>
+    </application-components>
+
+    <project-components>
+        <component>
+            <implementation-class>ru.basecode.ide.rest.plugin.RestProjectComponent</implementation-class>
+        </component>
+    </project-components>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileTypeFactory implementation="ru.basecode.ide.rest.plugin.RestFileTypeFactory"/>
+        <lang.parserDefinition language="Rest" implementationClass="ru.basecode.ide.rest.plugin.RestParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="Rest"
+                                       implementationClass="ru.basecode.ide.rest.plugin.RestHighlighterFactory"/>
+        <multiHostInjector implementation="ru.basecode.ide.rest.plugin.RestHostInjector"/>
+        <additionalTextAttributes file="META-INF/schema.xml" scheme="Default"/>
+
+        <colorSettingsPage implementation="ru.basecode.ide.rest.plugin.RestColorSettingsPage"/>
+
+        <lang.commenter language="Rest" implementationClass="ru.basecode.ide.rest.plugin.RestCommenter"/>
+    </extensions>
+
+    <actions>
+        <action class="ru.basecode.ide.rest.plugin.RunAction" id="rest.action.run" text="Run Rest Request">
+            <keyboard-shortcut first-keystroke="meta ENTER" keymap="$default"/>
+        </action>
+    </actions>
+
+    <actions>
+        <action class="ru.basecode.ide.rest.plugin.StopAction" id="rest.action.stop" text="Stop Rest Request">
+            <keyboard-shortcut first-keystroke="meta F2" keymap="$default"/>
+        </action>
+    </actions>
+
+</idea-plugin>

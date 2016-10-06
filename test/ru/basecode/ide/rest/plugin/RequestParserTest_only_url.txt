@@ -1,0 +1,1 @@
+http://12345.ru/path?param=value
