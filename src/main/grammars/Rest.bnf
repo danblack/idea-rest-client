@@ -1,0 +1,55 @@
+{
+  parserClass="ru.basecode.ide.rest.plugin.parser._RestParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Rest"
+  psiImplClassSuffix="Impl"
+  psiPackage="ru.basecode.ide.rest.plugin.psi"
+  psiImplPackage="ru.basecode.ide.rest.plugin.psi.impl"
+
+  elementTypeHolderClass="ru.basecode.ide.rest.plugin.psi.RestTypes"
+  elementTypeClass="ru.basecode.ide.rest.plugin.psi.RestElementType"
+  tokenTypeClass="ru.basecode.ide.rest.plugin.psi.RestTokenType"
+}
+
+restPsiFile ::= item_*
+
+//private item_ ::= (WHITE_SPACE|COMMENT|OPTION|PARAM|HEADER|URL|METHOD|SEPARATOR|REQUEST_BODY_LINE|RESPONSE_BODY_LINE|CRLF|BAD_CHARACTER)+
+
+private item_ ::= request e_separator? ws* response?
+
+ws ::= {WHITE_SPACE|CRLF}+
+
+e_separator ::= SEPARATOR
+
+e_method ::= METHOD
+
+e_url ::= URL
+
+e_bad ::= BAD_CHARACTER
+
+request ::= ws* comments? options? comments? e_method? ws* comments? e_url ws* comments? params? comments? headers? comments? request_body?
+
+options ::= COMMENT? OPTION {OPTION|COMMENT|ws}*
+
+e_param ::= PARAM
+
+params ::= e_param {e_param|COMMENT|ws}*
+
+comments ::= COMMENT {COMMENT|ws}*
+
+e_header ::= HEADER
+
+headers ::= e_header {e_header|COMMENT|ws}*
+
+request_body ::= REQUEST_BODY_LINE {REQUEST_BODY_LINE|COMMENT|ws}* {
+    mixin="ru.basecode.ide.rest.plugin.psi.impl.RestWrapperPsiElement"
+}
+
+response ::= comments? headers? comments? response_body?
+
+response_body ::= RESPONSE_BODY_LINE {RESPONSE_BODY_LINE|COMMENT|ws}* {
+    mixin="ru.basecode.ide.rest.plugin.psi.impl.RestWrapperPsiElement"
+}
+

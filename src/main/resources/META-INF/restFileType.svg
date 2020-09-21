@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+    <path fill="none" d="M0 0h16v16H0z"/>
+    <defs>
+        <clipPath id="a">
+            <path clip-rule="evenodd" d="M0 0h16v16H0z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#a)" transform="matrix(1.10847 0 0 1.10847 -.868 -.488)">
+        <path d="M3 5h4V1z" fill="#9aa7b0" fill-opacity=".8"/>
+    </g>
+    <defs>
+        <clipPath id="b">
+            <path clip-rule="evenodd" d="M0 0h16v16H0z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#b)" transform="matrix(1.10847 0 0 1.10847 -.868 -.488)">
+        <path d="M3 14.416V6h5V1h5v13.416z" fill="#9aa7b0" fill-opacity=".8"/>
+    </g>
+    <defs>
+        <clipPath id="c">
+            <path clip-rule="evenodd" d="M0 0h16v16H0z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#c)" transform="matrix(.4791 0 0 .99516 8.402 .077)" fill="#ff5454">
+        <path d="M1 9h15v7H1z"/>
+    </g>
+    <defs>
+        <clipPath id="d">
+            <path clip-rule="evenodd" d="M0 0h16v16H0z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#d)">
+        <text font-size="7" font-weight="700" x="10.096" y="15.615" font-family="Gotham"
+              fill="#231f20" fill-opacity=".698">
+            <tspan font-size="8.667"
+                   font-family="Londrina Solid" fill="#fff" fill-opacity="1">R
+            </tspan>
+        </text>
+    </g>
+</svg>
