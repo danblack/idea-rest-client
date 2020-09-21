@@ -1,7 +1,14 @@
-This plugin helps you to run http-requests from an IDEA's text editor
+# Rest Client
 
-#### Features
-- Supports GET, POST, PUT, DELETE, PATCH requests
+![Build](https://github.com/danblack/idea-rest-client/workflows/Build/badge.svg)
+[![Version](https://img.shields.io/jetbrains/plugin/v/9232-http-editor-client.svg)](https://plugins.jetbrains.com/plugin/9232-http-editor-client)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/9232-http-editor-client.svg)](https://plugins.jetbrains.com/plugin/9232-http-editor-client)
+
+<!-- Plugin description -->
+Allows making http requests using IDEA text editor
+
+## Features
+- Supports GET, POST, PUT, DELETE, PATCH, HEAD & OPTIONS requests
 - Multiline request parameters
 - Response auto format (based on response Content-Type header)
 - Customized colors and fonts
@@ -10,7 +17,7 @@ This plugin helps you to run http-requests from an IDEA's text editor
 
 ![demo](doc/demo.png)
 
-#### YouTube demos 
+## YouTube demos 
 
 * [Simple demo](https://www.youtube.com/watch?v=AliJaGmXlxc)
 
@@ -90,3 +97,17 @@ http://localhost:8080/mirror-params?one=1
 one: 1
 five: 5
 ```
+
+<!-- Plugin description end -->
+
+## Installation
+
+- Using IDE built-in plugin system:
+  
+  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "%NAME%"</kbd> >
+  <kbd>Install Plugin</kbd>
+  
+- Manually:
+
+  Download the [latest release](https://github.com/%REPOSITORY%/releases/latest) and install it manually using
+  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>

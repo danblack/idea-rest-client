@@ -1,0 +1,70 @@
+<idea-plugin url="https://github.com/danblack/idea-rest-client">
+    <id>ru.basecode.ide.rest.plugin</id>
+    <name>Rest Client</name>
+    <vendor email="denis.chernyshov@gmail.com" url="https://www.basecode.ru/ide/plugins/rest">Denis Chernyshov</vendor>
+
+    <description><![CDATA[
+      AUTO GENERATED FROM PLUGIN
+    ]]></description>
+
+    <change-notes><![CDATA[
+      AUTO GENERATED FROM PLUGIN
+    ]]>
+    </change-notes>
+
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <!-- Dependencies (must be defined to ensure compatibility with other IDEs) -->
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.xml</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Rest file"
+                  implementationClass="ru.basecode.ide.rest.plugin.file.RestFileType"
+                  fieldName="INSTANCE" language="Rest" extensions="http;rest"/>
+
+        <lang.parserDefinition language="Rest"
+                               implementationClass="ru.basecode.ide.rest.plugin.grammar.RestParserDefinition"/>
+
+        <lang.syntaxHighlighterFactory language="Rest"
+                                       implementationClass="ru.basecode.ide.rest.plugin.highlighter.RestHighlighterFactory"/>
+
+        <!-- embedding json/xml & other response within our rest response -->
+        <multiHostInjector implementation="ru.basecode.ide.rest.plugin.injector.RestHostInjector"/>
+
+        <additionalTextAttributes file="META-INF/schema.xml" scheme="Default"/>
+
+        <colorSettingsPage
+                implementation="ru.basecode.ide.rest.plugin.highlighter.RestColorSettingsPage"/>
+
+        <lang.commenter language="Rest"
+                        implementationClass="ru.basecode.ide.rest.plugin.editor.RestCommenter"/>
+
+        <fileEditorProvider
+                implementation="ru.basecode.ide.rest.plugin.editor.RestClientEditorProvider"/>
+
+        <!-- Broken -->
+<!--        <codeStyleSettingsProvider-->
+<!--                implementation="ru.basecode.ide.rest.plugin.codestyle.RestCodeStyleSettingsProvider"/>-->
+    </extensions>
+
+    <actions>
+        <group id="RestClient.Toolbar.Left"
+               class="com.intellij.openapi.actionSystem.DefaultActionGroup" text="_Rest Client"
+               popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <action class="ru.basecode.ide.rest.plugin.action.SendAction"
+                    id="ru.basecode.ide.rest.plugin.action.SendAction" text="Send"
+                    description="Send new request">
+                <keyboard-shortcut first-keystroke="control ENTER" keymap="$default"/>
+            </action>
+            <action class="ru.basecode.ide.rest.plugin.action.StopAction"
+                    id="ru.basecode.ide.rest.plugin.action.StopAction" text="Stop"
+                    description="Stop ongoing request">
+                <keyboard-shortcut first-keystroke="control F2" keymap="$default"/>
+            </action>
+        </group>
+    </actions>
+
+</idea-plugin>
